@@ -1,9 +1,13 @@
 package demo;
 
+/**
+ *计算器类（Calculator），可以实现两个数的加、减、乘、除运算，并可以进行undo和redo操作
+ * 链式调用版
+ */
 
 public class NomalCaculator extends AbstractCalculator{
 
-    String lastResult = "0";
+    private String lastResult = "0";
 
     public NomalCaculator(){}
 

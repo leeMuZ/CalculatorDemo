@@ -5,9 +5,13 @@ import java.math.RoundingMode;
 import java.util.ArrayDeque;
 
 public abstract class AbstractCalculator{
-
+    /**
+     * 默认精度
+     */
      public int scale = 15;
-     // 默认精度
+    /**
+     * 操作记录
+     */
      private ArrayDeque<Operation> redo = new ArrayDeque();
      private ArrayDeque<Operation> undo = new ArrayDeque();
 
@@ -74,7 +78,9 @@ public abstract class AbstractCalculator{
         undo.offerFirst(redo.peekFirst());
         return redo.pollFirst();
     }
-
+    /**
+     * 重置计算器
+     */
     public void reset() {
         redo.clear();
         undo.clear();
@@ -88,7 +94,9 @@ public abstract class AbstractCalculator{
         }
 
     }
-
+    /**
+     * 操作记录类
+     */
     class Operation {
         private OperationType type;
         private String x;
@@ -118,7 +126,9 @@ public abstract class AbstractCalculator{
             return result;
         }
     }
-
+    /**
+     * 操作枚举
+     */
     enum OperationType {
         ADD, SUBTRACT, MULTIPLY, DIVIDE
     }
